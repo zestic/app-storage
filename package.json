@@ -13,6 +13,9 @@
   "devDependencies": {
     "typescript": "^4.3.5"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@ionic/storage": "^3.0.6"
   }
