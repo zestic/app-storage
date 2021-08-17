@@ -13,6 +13,10 @@
   "devDependencies": {
     "typescript": "^4.3.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zestic/app-storage.git"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
