@@ -1,3 +1,4 @@
+// app storage
 import { Storage } from '@ionic/storage';
 
 let storage: Storage;
