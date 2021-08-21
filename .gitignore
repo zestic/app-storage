@@ -10,9 +10,10 @@ node_modules
 # Ignore files related to API keys
 .env
 
-
 lib
-
 
 # Ignore SASS config files
 .sass-cache
+
+# Ignore ide
+.idea

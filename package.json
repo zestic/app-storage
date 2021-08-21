@@ -1,6 +1,6 @@
 {
-  "name": "@zestic/c-app-storage",
-  "version": "1.9.0",
+  "name": "@zestic/app-storage",
+  "version": "0.8.0",
   "description": "",
   "main": "lib/index.js",
   "types": "lib",
