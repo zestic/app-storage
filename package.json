@@ -1,15 +1,17 @@
 {
   "name": "@zestic/app-storage",
   "version": "0.9.3",
-  "description": "",
+  "description": "Cross platform storage",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
     "dist/**/*"
   ],
+  "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "license": "UNLICENSED",
   "dependencies": {
+    "@babel/runtime": "^7.14.0",
     "@ionic/storage": "^3.0.6"
   },
   "devDependencies": {
