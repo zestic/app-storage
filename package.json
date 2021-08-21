@@ -2,15 +2,38 @@
   "name": "@zestic/app-storage",
   "version": "0.9.1",
   "description": "",
-  "main": "lib/index.js",
-  "types": "lib",
-  "scripts": {
-    "build": "tsc -p ."
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "types": "dist/typings/index.d.ts",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@ionic/storage": "^3.0.6"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.0",
+    "rollup": "^2.50.5",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-node-externals": "^2.2.0",
     "typescript": "^4.3.5"
   },
   "repository": {
@@ -20,7 +43,13 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "dependencies": {
-    "@ionic/storage": "^3.0.6"
+  "scripts": {
+    "build": "yarn run build:js && yarn run build:types",
+    "build:js": "rollup -c rollup.config.js",
+    "build:types": "tsc -p tsconfig.build.json",
+    "format": "prettier --write .",
+    "lint": "yarn run lint:format && yarn run lint:js",
+    "lint:format": "prettier --check .",
+    "lint:js": "eslint ./src/**/*.{ts,tsx}"
   }
 }

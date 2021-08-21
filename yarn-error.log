@@ -1,49 +1,61 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js publish
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;D:\RKI_Team\Data_Research\0709\apache-maven-3.8.1-bin\apache-maven-3.8.1\bin;C:\Users\RKI\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\RKI\AppData\Local\Programs\Python\Python37-32\;C:\Users\RKI\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_192\bin;C:\Users\RKI\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\RKI\.dotnet\tools;C:\Program Files\Azure Data Studio\bin;C:\Users\RKI\AppData\Local\Yarn\bin;C:\Users\RKI\AppData\Roaming\npm;D:\RKI_Team\Data_Research\0709\apache-maven-3.8.1-bin\apache-maven-3.8.1\bin;C:\Program Files (x86)\Microsoft SDKs\TypeScript\4.1;
+  /home/iampersistent/anaconda3/bin:/home/iampersistent/anaconda3/condabin:/home/iampersistent/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/iampersistent/Android/Sdk/platform-tools:/home/iampersistent/Android/Sdk/emulator:/usr/lib/jvm/java-11-oracle/bin:/usr/lib/jvm/java-11-oracle/db/bin:/home/iampersistent/Android/Sdk/platform-tools
 
 Yarn version: 
   1.22.5
 
 Node version: 
-  14.16.1
+  16.2.0
 
 Platform: 
-  win32 x64
+  linux x64
 
 Trace: 
-  Error: canceled
-      at Interface.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:137009:13)
-      at Interface.emit (events.js:315:20)
-      at Interface._ttyWrite (readline.js:875:16)
-      at ReadStream.onkeypress (readline.js:213:10)
-      at ReadStream.emit (events.js:315:20)
-      at emitKeys (internal/readline/utils.js:345:14)
-      at emitKeys.next (<anonymous>)
-      at ReadStream.onData (readline.js:1144:36)
-      at ReadStream.emit (events.js:315:20)
-      at addChunk (internal/streams/readable.js:309:12)
+  SyntaxError: /home/iampersistent/code/zestic/packages/app-storage/package.json: Unexpected token , in JSON at position 274
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {
-    "name": "app-storage",
-    "version": "1.3.0",
+    "name": "@zestic/app-storage",
+    "version": "0.9.1",
     "description": "",
-    "main": "lib/index.js",
-    "types": "lib",
-    "scripts": {
-      "build": "tsc -p ."
-    },
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "files": [
+      "dist/**/*"
+    ],
+    "types": "dist/typings/index.d.ts",
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "UNLICENSED",,
+    "dependencies": {
+      "@ionic/storage": "^3.0.6"
+    },
     "devDependencies": {
       "typescript": "^4.3.5"
     },
-    "dependencies": {
-      "@ionic/storage": "^3.0.6"
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/zestic/app-storage.git"
+    },
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+    },
+    "scripts": {
+      "build": "yarn run build:js && yarn run build:types",
+      "build:js": "rollup -c rollup.config.js",
+      "build:types": "tsc -p tsconfig.build.json",
+      "format": "prettier --write .",
+      "lint": "yarn run lint:format && yarn run lint:js",
+      "lint:format": "prettier --check .",
+      "lint:js": "eslint ./src/**/*.{ts,tsx}"
     }
   }
 
