@@ -15,13 +15,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           always-auth: true
           scope: "@zestic"
-          token: ${{ secrets.NPM_TOKEN }}
       - name: Update NPMRC
         run: |
-              echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+              echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN_2 }}" >> .npmrc
       - run: cat .npmrc
       - run: yarn
       - run: yarn build
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_2 }}
