@@ -14,6 +14,10 @@ jobs:
           node-version: "16.x"
           registry-url: 'https://registry.npmjs.org'
           scope: "@zestic"
+      - name: Update NPMRC
+        run: |
+              echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+      - run: cat .npmrc
       - run: yarn
       - run: yarn build
       - run: yarn publish
