@@ -1,6 +1,6 @@
 {
   "name": "@zestic/app-storage",
-  "version": "0.9.10",
+  "version": "0.9.14",
   "description": "Cross platform storage",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -9,7 +9,7 @@
   ],
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.14.0",
     "@ionic/storage": "^3.0.6"
@@ -43,7 +43,7 @@
     "url": "git://github.com/zestic/app-storage.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "yarn run build:js && yarn run build:types",
